@@ -25,5 +25,10 @@ namespace WebApplication1.DAL
         {
             return Context.Authors.ToList();
         }
+
+        public void AddAuthor(Author my_author)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -19,6 +19,5 @@ namespace WebApplication1.Models
 
        [MaxLength(length: 20, ErrorMessage = "Pen Name can not be larger than 20 Chars")]
         public string PenName { get; set; }
-
     }
 }
