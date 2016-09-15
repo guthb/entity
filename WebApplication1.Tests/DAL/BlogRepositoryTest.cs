@@ -103,6 +103,26 @@ namespace WebApplication1.Tests.DAL
             //Assert
             Assert.AreEqual(expected_author_count, actual_author_count);
         }
+
+
+        [TestMethod]
+        public void RepoEnsureAddAuthorWithArgs()
+        {
+            // Arange
+            ConnectMocksToDatastore();
+            BlogRepository repo = new BlogRepository(mock_context.Object);
+
+            // Act
+            repo.AddAuthor("Sally", "Mae", "Voldemort");
+
+            // Assert();
+            List<Author> actual_authors = repo.GetAuthors();
+            string actual_author_penname = actual_authors.First().PenName;
+            string expected_author_penname = "Voldemort";
+
+            Assert.AreEqual(expected_author_penname, actual_author_penname);
+
+        }
         
     }
     
