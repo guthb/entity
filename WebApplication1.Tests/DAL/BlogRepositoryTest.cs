@@ -26,10 +26,14 @@ namespace WebApplication1.Tests.DAL
             mock_author_table.As<IQueryable<Author>>().Setup(m => m.Provider).Returns(queryable_list.Provider);
             mock_author_table.As<IQueryable<Author>>().Setup(m => m.Expression).Returns(queryable_list.Expression);
             mock_author_table.As<IQueryable<Author>>().Setup(m => m.ElementType).Returns(queryable_list.ElementType);
-            mock_author_table.As<IQueryable<Author>>().Setup(m => m.GetEnumerator()).Returns(queryable_list.GetEnumerator());
+            //mock_author_table.As<IQueryable<Author>>().Setup(m => m.GetEnumerator()).Returns(queryable_list.GetEnumerator());
+            mock_author_table.As<IQueryable<Author>>().Setup(m => m.GetEnumerator()).Returns(() => queryable_list.GetEnumerator());
 
             //Have our authors property return our fake database table
             mock_context.Setup(c => c.Authors).Returns(mock_author_table.Object);
+
+            // how to define a callback in response to a called method
+            mock_author_table.Setup(t => t.Add(It.IsAny<Author>())).Callback((Author a) => author_list.Add(a));
         }
 
 
