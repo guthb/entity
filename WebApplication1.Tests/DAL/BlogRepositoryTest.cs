@@ -18,6 +18,8 @@ namespace WebApplication1.Tests.DAL
         Mock<BlogContext> mock_context  { get; set; }
         Mock<DbSet<Author>> mock_author_table { get; set; }
         List<Author> author_list { get; set; } //fake database
+        BlogRepository repo { get; set; }
+
        
         public void ConnectMocksToDatastore()
         {
@@ -45,8 +47,18 @@ namespace WebApplication1.Tests.DAL
             mock_context = new Mock<BlogContext>();
             mock_author_table = new Mock<DbSet<Author>>();
             author_list = new List<Author>();  //fake database
-            
+            repo = new BlogRepository(mock_context.Object);
 
+            ConnectMocksToDatastore();
+
+
+
+        }
+
+        [TestCleanup] //runs after every test
+        public void TearDown()
+        {
+            repo = null;  // 
         }
 
 
@@ -73,8 +85,8 @@ namespace WebApplication1.Tests.DAL
         public void RepoEnsureWeHaveNoAuthors()
         {
             //Arrange
-            ConnectMocksToDatastore();
-            BlogRepository repo = new BlogRepository(mock_context.Object);
+            //ConnectMocksToDatastore();
+           // BlogRepository repo = new BlogRepository(mock_context.Object);
             
 
             //Act
@@ -91,8 +103,8 @@ namespace WebApplication1.Tests.DAL
         public void RepoEnsureAddAuthorToDatabase()
         {
             //Arrange
-            ConnectMocksToDatastore();
-            BlogRepository repo = new BlogRepository(mock_context.Object);
+           // ConnectMocksToDatastore();
+            //BlogRepository repo = new BlogRepository(mock_context.Object);
             Author my_author = new Author {FirstName= "Sally", LastName ="Mae", PenName = "Voldemort" }; // Property Initilazer
 
             //Act
@@ -110,8 +122,8 @@ namespace WebApplication1.Tests.DAL
         public void RepoEnsureAddAuthorWithArgs()
         {
             // Arange
-            ConnectMocksToDatastore();
-            BlogRepository repo = new BlogRepository(mock_context.Object);
+            //ConnectMocksToDatastore();
+            //BlogRepository repo = new BlogRepository(mock_context.Object);
 
             // Act
             repo.AddAuthor("Sally", "Mae", "Voldemort");
@@ -134,8 +146,8 @@ namespace WebApplication1.Tests.DAL
             author_list.Add(new Author { AuthorId = 3, FirstName = "Golden State", LastName = "Warriors", PenName = "gsw" });
    
 
-            BlogRepository repo = new BlogRepository(mock_context.Object);
-            ConnectMocksToDatastore();
+            //BlogRepository repo = new BlogRepository(mock_context.Object);
+            //ConnectMocksToDatastore();
 
             //Act
             string pen_name = "voldemort";
@@ -156,8 +168,8 @@ namespace WebApplication1.Tests.DAL
             author_list.Add(new Author { AuthorId = 2, FirstName = "Time", LastName = "James", PenName = "Tim" });
             author_list.Add(new Author { AuthorId = 3, FirstName = "Golden State", LastName = "Warriors", PenName = "gsw" });
 
-            BlogRepository repo = new BlogRepository(mock_context.Object);
-            ConnectMocksToDatastore();
+            //BlogRepository repo = new BlogRepository(mock_context.Object);
+            //ConnectMocksToDatastore();
 
             //Act
             string pen_name = "tim";
@@ -183,8 +195,8 @@ namespace WebApplication1.Tests.DAL
             author_list.Add(new Author { AuthorId = 2, FirstName = "Time", LastName = "James", PenName = "Tim" });
             author_list.Add(new Author { AuthorId = 3, FirstName = "Golden State", LastName = "Warriors", PenName = "gsw" });
 
-            BlogRepository repo = new BlogRepository(mock_context.Object);
-            ConnectMocksToDatastore();
+           // BlogRepository repo = new BlogRepository(mock_context.Object);
+           // ConnectMocksToDatastore();
 
             //Act
             string pen_name = "harry ";
