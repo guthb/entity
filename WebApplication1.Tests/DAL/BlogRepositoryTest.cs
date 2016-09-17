@@ -172,14 +172,28 @@ namespace WebApplication1.Tests.DAL
             Assert.AreEqual(expected_author_count, actual_author_count);
             Assert.AreEqual(expected_author_id, actual_author_id);
 
-
-
-
         }
 
         [TestMethod]
         public void RepoEnsureICanNotRemoveThingsNotThere()
         {
+
+            //Arrange
+            author_list.Add(new Author { AuthorId = 1, FirstName = "Sally", LastName = "Mae", PenName = "Voldemort" });
+            author_list.Add(new Author { AuthorId = 2, FirstName = "Time", LastName = "James", PenName = "Tim" });
+            author_list.Add(new Author { AuthorId = 3, FirstName = "Golden State", LastName = "Warriors", PenName = "gsw" });
+
+            BlogRepository repo = new BlogRepository(mock_context.Object);
+            ConnectMocksToDatastore();
+
+            //Act
+            string pen_name = "harry ";
+            Author removed_author = repo.RemoveAuthor(pen_name);
+
+
+            //Assert
+            Assert.IsNull(removed_author);
+            
 
         }
 
