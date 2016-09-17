@@ -39,5 +39,36 @@ namespace WebApplication1.DAL
             Context.Authors.Add(author);
             Context.SaveChanges();
         }
+
+        public Author FindAuthorByPenName(string pen_name)
+        {
+            //very inefficient
+            //select * from Author; gets all the authors.
+
+            
+            // Much faster to use LINQ to generate something like:
+            // select * from authors WHERE PenName == pen_name
+            List<Author> found_authors = Context.Authors.ToList();
+            foreach (var author in found_authors)
+            {
+                if (author.PenName.ToLower() == pen_name.ToLower())
+                {
+                    return author;
+                }
+
+            }
+            return null;
+        }
+
+        public Author RemoveAuthor(string pen_name)
+        {
+            Author found_author = FindAuthorByPenName(pen_name);
+            if (found_author != null)
+            {
+                Context.Authors.Remove(found_author);
+                Context.SaveChanges();
+            }
+            return found_author;
+        }
     }
 }

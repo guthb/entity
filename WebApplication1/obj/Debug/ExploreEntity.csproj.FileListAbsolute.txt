@@ -64,7 +64,6 @@ Z:\workspace\backend\database\entity\WebApplication1\WebApplication1\bin\Microso
 Z:\workspace\backend\database\entity\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Google.xml
 Z:\workspace\backend\database\entity\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Twitter.xml
 Z:\workspace\backend\database\entity\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-Z:\workspace\backend\database\entity\WebApplication1\WebApplication1\obj\Debug\ExploreEntity.csprojResolveAssemblyReference.cache
 Z:\workspace\backend\database\entity\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 Z:\workspace\backend\database\entity\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
 Z:\workspace\backend\database\entity\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.IntialCreate.resources
