@@ -17,9 +17,25 @@ namespace WebApplication1.Controllers
         public ActionResult Index()
         {
             List<Author> list_of_authors = repo.GetAuthors();
-            return View();
+
+            //ViewBag.Authors = list_of_authors;
+            //or
+
+            return View(list_of_authors);
         }
 
+
+        public ActionResult WithViewBag()
+        {
+            List<Author> list_of_authors = repo.GetAuthors();
+
+            //ViewBag.Authors = list_of_authors;
+            //or
+
+            return View(list_of_authors);
+        }
+
+    
         //adding action for users pen name example
         // /Name/Action?penname=gsw
 

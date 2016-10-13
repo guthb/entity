@@ -256,10 +256,10 @@
     <Content Include="Views\ATest\Details.cshtml" />
     <Content Include="Views\ATest\Edit.cshtml" />
     <Content Include="Views\ATest\Index.cshtml" />
+    <Content Include="Views\Author\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Author\" />
     <Folder Include="Views\TestTwo\" />
   </ItemGroup>
   <ItemGroup>
