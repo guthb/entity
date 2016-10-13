@@ -15,7 +15,7 @@ namespace WebApplication1.DAL
             Context = new BlogContext();
         }
 
-        public BlogRepository(BlogContext _context)
+        public BlogRepository(BlogContext _context)   //only used when we want to connect to a real database
         {
             Context = _context;
         }
@@ -45,9 +45,16 @@ namespace WebApplication1.DAL
             //very inefficient
             //select * from Author; gets all the authors.
 
-            
+
             // Much faster to use LINQ to generate something like:
             // select * from authors WHERE PenName == pen_name
+
+            Author found_author = Context.Authors.FirstOrDefault(rowinauthortable => rowinauthortable.PenName.ToLower() == pen_name.ToLower());
+            return found_author;
+
+
+
+            /*
             List<Author> found_authors = Context.Authors.ToList();
             foreach (var author in found_authors)
             {
@@ -58,6 +65,7 @@ namespace WebApplication1.DAL
 
             }
             return null;
+            */
         }
 
         public Author RemoveAuthor(string pen_name)

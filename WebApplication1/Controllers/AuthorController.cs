@@ -19,5 +19,15 @@ namespace WebApplication1.Controllers
             List<Author> list_of_authors = repo.GetAuthors();
             return View();
         }
+
+        //adding action for users pen name example
+        // /Name/Action?penname=gsw
+
+        public ActionResult PenUsed(string penname)
+        {
+            return View();
+        }
+
+
     }
 }

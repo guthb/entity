@@ -69,3 +69,4 @@ Z:\workspace\backend\database\entity\WebApplication1\WebApplication1\obj\Debug\W
 Z:\workspace\backend\database\entity\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.IntialCreate.resources
 Z:\workspace\backend\database\entity\WebApplication1\WebApplication1\obj\Debug\ExploreEntity.csproj.GenerateResource.Cache
 Z:\workspace\backend\database\entity\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.AddPenNameColumn.resources
+Z:\workspace\backend\database\entity\WebApplication1\WebApplication1\obj\Debug\ExploreEntity.csprojResolveAssemblyReference.cache
